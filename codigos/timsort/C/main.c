@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 #include "timsort.h"
 #include "io.h"
-#define TAMANHO_VETOR 100
+#define TAMANHO_VETOR 1000000
 
 //Analise do vetor na forma aleatória - .dat cru
 //vetor ordenado - depois da ordenação
@@ -18,23 +19,24 @@ int main(){
         return 1;
     }
 
-    for (int i = 0; i < TAMANHO_VETOR; i++) {
-        printf("%d ", vetor[i]);
-    }
-
     struct timespec start, end;
+
+    //-----------------------Ordenação vetor aleatório-----------------------
+    int *copia = malloc(TAMANHO_VETOR * sizeof(int));
+    if (copia == NULL) {
+        printf("Erro de memória!\n");
+        return 1;
+    }
+    memcpy(copia, vetor, TAMANHO_VETOR * sizeof(int));
+    
     clock_gettime(CLOCK_MONOTONIC, &start);
-
-    // ... Ordenação ...
-
+    timsort(copia, TAMANHO_VETOR);
     clock_gettime(CLOCK_MONOTONIC, &end);
 
-
-    //Calcula o tempo passado 
-    double tempo = (end.tv_sec - start.tv_sec) * 1e9 + (end.tv_nsec - start.tv_nsec);
-
-    tempo /= 1e9;
-
-    //todo free vetor
-
+    double tempo = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
+    printf("Com vetor aleatorio tamanho %d, demorou %fs\n", TAMANHO_VETOR, tempo);
+    
+    free(copia);
+    free(vetor);
+    return 0;
 }
