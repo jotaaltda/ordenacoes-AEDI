@@ -10,6 +10,7 @@ int main(){
     struct timespec start, end;
     double tempo;
     double total;
+    double media;
     int tamanho = 100; //1000, 10000, 100000, 1000000
 
     int *vetor = ler_arquivo("../../../Dados/valores.dat", TAMANHO_VETOR_MAX);
@@ -47,6 +48,7 @@ int main(){
     //-----------------------Ordenação vetor aleatório-----------------------
         tempo = 0;
         total = 0;
+        media = 0;
         printf("-------Tamanho %i-------\n", tamanho);
         printf("..........Aleatorio.........\n");
         for(int j = 0; j < 10; j++){
@@ -61,13 +63,14 @@ int main(){
             printf("...  Tempo %i: %.6fs  ...\n", j, tempo);
             total += tempo;
         }
-        double media = total / 10;
+        media = total / 10;
         printf("...   Media: %.6fs   ...\n", media);
         printf("............................\n");
 
     //-----------------------Ordenação vetor ordenado------------------------
         tempo = 0;
         total = 0;
+        media = 0;
         printf("..........Ordenado..........\n");
 
         memcpy(ordenado, vetor, tamanho * sizeof(int));
@@ -88,13 +91,14 @@ int main(){
             printf("...  Tempo %i: %.6fs  ...\n", j, tempo);
             total += tempo;
         }
-        double media = total / 10;
+        media = total / 10;
         printf("...   Media: %.6fs   ...\n", media);
         printf("............................\n");
 
     //-----------------------Ordenação vetor invertido-----------------------
         tempo = 0;
         total = 0;
+        media = 0;
         for (int k = 0; k < tamanho; k++) {
             invertido[k] = ordenado[tamanho - 1 - k];
         }
@@ -110,14 +114,14 @@ int main(){
             printf("...  Tempo %i: %.6fs  ...\n", j, tempo);
             total += tempo;
         }
-        double media = total / 10;
+        media = total / 10;
         printf("...   Media: %.6fs   ...\n", media);
         printf("............................\n");
 
     //-----------------------Ordenação vetor semelhante----------------------
         tempo = 0;
         total = 0;
-        
+        media = 0;
         printf(".....Valores Semelhantes....\n");
         for(int j = 0; j < 10; j++){
 
@@ -130,7 +134,7 @@ int main(){
             printf("...  Tempo %i: %.6fs  ...\n", j, tempo);
             total += tempo;
         }
-        double media = total / 10;
+        media = total / 10;
         printf("...   Media: %.6fs   ...\n", media);
         printf("............................\n");
 
