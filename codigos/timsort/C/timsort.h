@@ -3,7 +3,7 @@
 
 void insertionSort(int vetor[], int tamanho);
 
-void mergeSort(int vetor[], int esq, int meio, int dir);
+void merge(int vetor[], int esq, int meio, int dir, int temp[]);
 
 void timsort(int vetor[], int n);
 

@@ -3,7 +3,6 @@
 #define MINRUN 32
 
 void insertionSort(int vetor[], int tamanho){
-    int x, j;
     for(int i = 1; i < tamanho; i++){
         int x = vetor[i];
         int j = i - 1;
@@ -15,49 +14,39 @@ void insertionSort(int vetor[], int tamanho){
     }
 }
 
-void mergeSort(int vetor[], int esq, int meio, int dir){
-    int n1 = meio - esq + 1;
-    int n2 = dir - meio;
+void merge(int vetor[], int esq, int meio, int dir, int temp[]){
+    for(int i = esq; i <= dir; i++){
+        temp[i] = vetor[i];
+    }
 
-    int *L = malloc(n1 * sizeof(int));
-    int *R = malloc(n2 * sizeof(int));
+    int i = esq;
+    int j = meio + 1;
+    int k = esq;
 
-    for (int i = 0; i < n1; i++)
-        L[i] = vetor[esq + i];
-
-    for (int j = 0; j < n2; j++)
-        R[j] = vetor[meio + 1 + j];
-
-    int i = 0, j = 0, k = esq;
-
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            vetor[k] = L[i];
-            i++;
+    while (i <= meio && j <= dir) {
+        if (temp[i] <= temp[j]) {
+            vetor[k++] = temp[i++];
         } else {
-            vetor[k] = R[j];
-            j++;
+            vetor[k++] = temp[j++];
         }
-        k++;
     }
 
-    while (i < n1) {
-        vetor[k] = L[i];
-        i++;
-        k++;
+    while (i <= meio) {
+        vetor[k++] = temp[i++];
     }
 
-    while (j < n2) {
-        vetor[k] = R[j];
-        j++;
-        k++;
+    while (j <= dir) {
+        vetor[k++] = temp[j++];
     }
-
-    free(L);
-    free(R);
 }
 
 void timsort(int vetor[], int n) {
+
+    int *temp = malloc(n * sizeof(int));
+    if (temp == NULL) {
+        printf("Erro de memória!");
+        return;
+    }
 
     for (int i = 0; i < n; i += MINRUN) {
         int fim = i + MINRUN - 1;
@@ -80,7 +69,8 @@ void timsort(int vetor[], int n) {
             if (right >= n)
                 right = n - 1;
 
-            mergeSort(vetor, left, mid, right);
+            merge(vetor, left, mid, right, temp);
         }
     }
+    free(temp);
 }
