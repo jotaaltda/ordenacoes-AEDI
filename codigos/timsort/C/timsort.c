@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "timsort.h"
 #define MINRUN 32
 
