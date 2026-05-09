@@ -2,6 +2,7 @@
 #define INTROSORT_H
 
 #include <string>
+#include <vector>
 
 struct Resultado {
     double tempo;
