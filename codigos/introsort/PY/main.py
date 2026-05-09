@@ -65,19 +65,19 @@ def main():
 
     BASE_DIR = os.path.dirname(__file__)
 
-arquivo1 = os.path.abspath(
-    os.path.join(
-        BASE_DIR,
-        "../../../Dados/valores.dat"
+    arquivo1 = os.path.abspath(
+        os.path.join(
+            BASE_DIR,
+            "../../../Dados/valores.dat"
+        )
     )
-)
 
-arquivo2 = os.path.abspath(
-    os.path.join(
-        BASE_DIR,
-        "../../../Dados/valores-semelhantes.dat"
+    arquivo2 = os.path.abspath(
+        os.path.join(
+            BASE_DIR,
+            "../../../Dados/valores-semelhantes.dat"
+        )
     )
-)
 
     for tamanho in TAMANHOS:
 
