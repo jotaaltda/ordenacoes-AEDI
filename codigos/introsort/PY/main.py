@@ -1,4 +1,5 @@
 import math
+import os
 
 from introsort import (
     ler_arquivo,
@@ -62,12 +63,21 @@ def executar_cenario(
 
 def main():
 
-    arquivo1 = "../../../Dados/valores.dat"
+    BASE_DIR = os.path.dirname(__file__)
 
-    arquivo2 = (
-        "../../../Dados/"
-        "valores-semelhantes.dat"
+arquivo1 = os.path.abspath(
+    os.path.join(
+        BASE_DIR,
+        "../../../Dados/valores.dat"
     )
+)
+
+arquivo2 = os.path.abspath(
+    os.path.join(
+        BASE_DIR,
+        "../../../Dados/valores-semelhantes.dat"
+    )
+)
 
     for tamanho in TAMANHOS:
 
