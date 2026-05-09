@@ -97,6 +97,23 @@ def heap_sort(vetor, inicio, fim):
 
 def particionar(vetor, inicio, fim):
 
+    meio = (inicio + fim) // 2
+
+    candidatos = [
+        (vetor[inicio], inicio),
+        (vetor[meio], meio),
+        (vetor[fim], fim)
+    ]
+
+    candidatos.sort(key=lambda x: x[0])
+
+    indice_pivo = candidatos[1][1]
+
+    vetor[indice_pivo], vetor[fim] = (
+        vetor[fim],
+        vetor[indice_pivo]
+    )
+
     pivo = vetor[fim]
 
     i = inicio - 1
