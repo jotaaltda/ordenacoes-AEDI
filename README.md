@@ -41,6 +41,8 @@ ordenacoes-AEDI-main/
 │
 ├── slides/
 │   └── Slide_AEDI (2).pdf
+│
+└── README.md
 ```
 
 ---
@@ -442,7 +444,6 @@ Cada execução imprime:
 - Tipo da entrada
 - Quantidade de elementos
 - Tempo de execução
-- Estimativa de consumo de memória
 
 ---
 
@@ -632,5 +633,14 @@ Slide_AEDI (2).pdf
 # Licença
 
 Projeto desenvolvido para fins acadêmicos.
+
+# Créditos
+
+Projeto desenvolvido por:
+
+- Ítalo Xavier Fonseca
+- João Paulo de Abreu Duarte
+- Matheus Tavares de Bessas
+- Thales Guerreiro Lima Gomes de Castro
 
 README desenvolvido com auxílio do ChatGPT (OpenAI) para estruturação técnica, documentação e padronização acadêmica do projeto.
