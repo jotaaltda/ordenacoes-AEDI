@@ -40,7 +40,7 @@ ordenacoes-AEDI-main/
 │       └── COBOL/
 │
 ├── slides/
-│   └── Slide_AEDI (2).pdf
+│   └── Slide_AEDI.pdf
 │
 └── README.md
 ```
@@ -625,7 +625,7 @@ O diretório `slides` contém material complementar utilizado na apresentação 
 Arquivo disponível:
 
 ```text
-Slide_AEDI (2).pdf
+Slide_AEDI.pdf
 ```
 
 ---
